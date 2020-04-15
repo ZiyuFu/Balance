@@ -23,7 +23,11 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var robot1: UIImageView!
+    @IBOutlet weak var robot2: UIImageView!
+    @IBOutlet weak var robot3: UIImageView!
     
+    
+    let screenSize: CGRect = UIScreen.main.bounds
     
     let switchMass = 93.0; //lb
     var totalMass = 0.0;
@@ -35,12 +39,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //initialize position for three ImageView objects.
+        robot1.center = CGPoint(x: (screenSize.width * CGFloat((robot1Pos.value))) / CGFloat(2.9), y: robot1.center.y );
+
+        robot2.center = CGPoint(x: (screenSize.width * CGFloat((robot2Pos.value))) / CGFloat(2.9), y: robot1.center.y );
+        
+        robot3.center = CGPoint(x: (screenSize.width * CGFloat((robot3Pos.value))) / CGFloat(2.9), y: robot1.center.y );
+
+
     }
     
-    @IBAction func updatePosition1(_ sender: UISlider) {
-        
-        robot1.center = CGPoint(x: robot1.center.x + CGFloat(sender.value), y: robot1.center.y );
+    
+    /**
+     This function has all three UISlider connected so that it universally takes care of all robot position updates.
+     */
+    @IBAction func updatePosition(_ sender: Any) {
+        robot1.center = Math.robotCenter(sliderValue: robot1Pos.value, currentCenter: robot1.center);
+        robot2.center = Math.robotCenter(sliderValue: robot2Pos.value, currentCenter: robot2.center);
+        robot3.center = Math.robotCenter(sliderValue: robot3Pos.value, currentCenter: robot3.center);
+
     }
+    
+
     
     
     @IBAction func calculate(_ sender: Any) {
