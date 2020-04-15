@@ -13,10 +13,6 @@ import Darwin
 
 class Math{
     
-    
-    
-    
-//    robot1.center = CGPoint(x: (screenSize.width * CGFloat((robot1Pos.value))) / CGFloat(2.9), y: robot1.center.y );
     class func robotCenter(sliderValue: Float, currentCenter: CGPoint) -> CGPoint {
         
         let x = CGFloat((Float(Constants.screenSize.width) * sliderValue) / Constants.sliderFullLength);

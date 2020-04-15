@@ -27,8 +27,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var robot3: UIImageView!
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -53,7 +51,6 @@ class ViewController: UIViewController {
     
 
     
-    
     @IBAction func calculate(_ sender: Any) {
         let mass1 = Double(robot1Mass.text!)!;
         let mass2 = Double(robot2Mass.text!)!;
@@ -63,17 +60,9 @@ class ViewController: UIViewController {
         let d2 = Double(robot2Pos.value);
         let d3 = Double(robot3Pos.value);
         
-        
-//        theta = (atan(-((mass1*d1 + mass2*d2 + mass3+d3) / (((mass1+mass2+mass3) * height) + switchMass*switchCenterOfMass))))
         let theta = Math.findTheta(m1: mass1, m2: mass2, m3: mass3, d1: d1, d2: d2, d3: d3)
-        
-        
-        if theta.magnitude >= 8{
-            results.text = "No";
-        }else{
-            results.text = "Yes";
 
-        }
+        results.text = (theta.magnitude >= Constants.maximumAngleFromLevel) ? "No" : "Yes";
         
         
         degResult.text = String(format:"%f", theta);
