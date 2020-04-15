@@ -15,9 +15,15 @@ class Constants{
     static let height = 1.228725; //meters
     static let switchCenterOfMass = 1.45; //meters from the left
     
+//    height of center of mass of generator switch
+    static let heightCG = 0.6604; //meters
+
+    
     static let sliderFullLength: Float = 2.9; //meters, corresponding to the actual length of the metal rung
     
     static let screenSize: CGRect = UIScreen.main.bounds;
+    
+    static let maximumAngleFromLevel = 8; //degrees deviated from perfect level
 
 
     
