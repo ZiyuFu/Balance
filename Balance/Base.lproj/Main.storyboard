@@ -103,6 +103,9 @@
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="2.8999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-SI-nL8">
                                 <rect key="frame" x="210" y="585" width="186" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="updatePosition1:" destination="BYZ-38-t0r" eventType="valueChanged" id="92n-Wh-wOq"/>
+                                </connections>
                             </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -110,6 +113,7 @@
                     </view>
                     <connections>
                         <outlet property="results" destination="v53-Jg-L6k" id="T9X-vb-VFW"/>
+                        <outlet property="robot1" destination="cHd-io-HgE" id="Pz5-9w-ERh"/>
                         <outlet property="robot1Mass" destination="XMF-9i-Hbd" id="Lcg-WQ-ha3"/>
                         <outlet property="robot1Pos" destination="xzd-SI-nL8" id="8ih-dS-0Rc"/>
                         <outlet property="robot2Mass" destination="LED-mf-hwQ" id="PY6-Ng-9FA"/>

@@ -21,6 +21,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var results: UILabel!
     
+    
+    @IBOutlet weak var robot1: UIImageView!
+    
+    
     let switchMass = 93.0; //lb
     var totalMass = 0.0;
     var theta = 0.0; //degree
@@ -33,6 +37,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func updatePosition1(_ sender: UISlider) {
+        
+        robot1.center = CGPoint(x: robot1.center.x + CGFloat(sender.value), y: robot1.center.y );
+    }
+    
+    
     @IBAction func calculate(_ sender: Any) {
         var mass1 = Double(robot1Mass.text!)!;
         var mass2 = Double(robot2Mass.text!)!;
@@ -42,6 +52,7 @@ class ViewController: UIViewController {
         var d2 = Double(robot2Pos.value);
         var d3 = Double(robot3Pos.value);
         totalMass = switchMass + mass1 + mass2 + mass3;
+        
         
         theta = (atan(-((mass1*d1 + mass2*d2 + mass3+d3) / (((mass1+mass2+mass3) * height) + switchMass*switchCenterOfMass))))
         
